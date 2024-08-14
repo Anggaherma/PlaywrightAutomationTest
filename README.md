@@ -25,7 +25,7 @@ formSubmissionAutomationTest is a project for UI testing of web forms using Play
 3. Install Playwright and its required browsers:
    ```bash
    npx playwright install
-   ``
+   ```
 
 ## How to run
 

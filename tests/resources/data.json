@@ -1,12 +1,12 @@
 {
-  "title": "",
-  "firstName": "",
-  "middleName": "",
-  "lastName": "",
-  "email": "",
-  "phoneNumber": "",
-  "dob": "",
-  "gender": "",
-  "province": "",
-  "city": ""
+  "title": "Mr.",
+  "firstName": "first",
+  "middleName": "middle",
+  "lastName": "last",
+  "email": "test@gmail.com",
+  "phoneNumber": "085878500367",
+  "dob": "2001-01-01",
+  "gender": "Male",
+  "province": "DKI Jakarta",
+  "city": "Jakarta Selatan"
 }

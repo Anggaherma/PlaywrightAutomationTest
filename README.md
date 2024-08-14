@@ -34,4 +34,4 @@ formSubmissionAutomationTest is a project for UI testing of web forms using Play
 - run this command `npx playwright test`
 
 ### Report
-- To check the HTML report, after test run finished run this command `npx playwright show-report` it will display the report html.
+- Once the test is complete, html report will be displayed automatically.

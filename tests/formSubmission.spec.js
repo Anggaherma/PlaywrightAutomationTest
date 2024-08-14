@@ -1,19 +1,19 @@
 // @ts-check
 const { test, expect } = require("@playwright/test");
-const config = require("./resources/config.json")
+const data = require("./resources/data.json")
 
-test("Access The Web Page", async ({ page }) => {
+test("C8 - Access The Web Page", async ({ page }) => {
   // Go to web page".
-  await page.goto(config.baseUrl);
+  await page.goto("/");
 
   // Expect a title to contain "Sample Web Form".
   await expect(page).toHaveTitle("Sample Web Form");
 
 });
 
-test("UI Element Presence", async ({ page }) => {
+test("C24 - UI Element Presence", async ({ page }) => {
   // Go to web page".
-  await page.goto(config.baseUrl);
+  await page.goto("/");
 
   // Ensure that the "Title" is present.
   await expect(page.locator('#title')).toBeVisible();
@@ -49,86 +49,86 @@ test("UI Element Presence", async ({ page }) => {
   await expect(page.locator('button[type="submit"]')).toBeVisible();
 });
 
-test("Positive Case - Submit form success", async ({ page }) => {
+test("C3 - Positive Case - Submit form success", async ({ page }) => {
 
-  await page.goto(config.baseUrl);
+  await page.goto("/");
 
   // Select title
-  await page.getByLabel('Title*').selectOption(config.title);
+  await page.getByLabel('Title*').selectOption(data.title);
 
   // Fill First Name
-  await page.getByLabel('First Name*').fill(config.firstName);
+  await page.getByLabel('First Name*').fill(data.firstName);
 
   // Fill Middle Name
-  await page.getByLabel('Middle Name*').fill(config.middleName);
+  await page.getByLabel('Middle Name*').fill(data.middleName);
 
   // Fill Last Name
-  await page.getByLabel('Last Name*').fill(config.lastName);
+  await page.getByLabel('Last Name*').fill(data.lastName);
 
   // Fill email
-  await page.getByLabel('Email*').fill(config.email);
+  await page.getByLabel('Email*').fill(data.email);
 
   // Fill Phone Number
-  await page.getByLabel('Phone Number*').fill(config.phoneNumber);
+  await page.getByLabel('Phone Number*').fill(data.phoneNumber);
 
   // Fill DOB
-  await page.getByLabel('Date of Birth*').fill(config.dob);
+  await page.getByLabel('Date of Birth*').fill(data.dob);
 
   // Select gender
   await page.getByText('Male Female').click();
 
   // Select province
-  await page.getByLabel('Address*').selectOption(config.province);
+  await page.getByLabel('Address*').selectOption(data.province);
 
   // Select city
-  await page.locator('#city').selectOption(config.city);
+  await page.locator('#city').selectOption(data.city);
 
   // Click submit button and verifiy button functionality
   await page.getByRole('button', { name: 'Submit' }).click();
 
   // Verifiy prompt for submits successfully
   await expect(page.locator('text=User Information')).toBeVisible;
-  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${config.title} ${config.firstName} ${config.middleName} ${config.lastName}`));
-  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${config.email}`));
-  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${config.phoneNumber}`));
-  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${config.province}`));
-  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${config.city}`));
+  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${data.title} ${data.firstName} ${data.middleName} ${data.lastName}`));
+  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${data.email}`));
+  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${data.phoneNumber}`));
+  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${data.province}`));
+  await expect(page.locator('#modalContent')).toHaveText(new RegExp(`${data.city}`));
 
 });
 
-test("Negative Case - Submit form invalid", async ({ page }) => {
+test("C16 - Negative Case - Submit form invalid email", async ({ page }) => {
 
-  await page.goto("https://flip-sample-form.onrender.com");
+  await page.goto("/");
 
   // Select title
-  await page.getByLabel('Title*').selectOption('Mr.');
+  await page.getByLabel('Title*').selectOption(data.title);
 
   // Fill First Name
-  await page.getByLabel('First Name*').fill('first');
+  await page.getByLabel('First Name*').fill(data.firstName);
 
   // Fill Middle Name
-  await page.getByLabel('Middle Name*').fill('middle');
+  await page.getByLabel('Middle Name*').fill(data.middleName);
 
   // Fill Last Name
-  await page.getByLabel('Last Name*').fill('last');
+  await page.getByLabel('Last Name*').fill(data.lastName);
 
   // Fill invalid email format
   await page.getByLabel('Email*').fill('test.gmail.com');
 
   // Fill Phone Number
-  await page.getByLabel('Phone Number*').fill('085878500367');
+  await page.getByLabel('Phone Number*').fill(data.phoneNumber);
 
   // Fill DOB
-  await page.getByLabel('Date of Birth*').fill('2001-01-01');
+  await page.getByLabel('Date of Birth*').fill(data.dob);
 
   // Select gender
   await page.getByText('Male Female').click();
 
   // Select province
-  await page.getByLabel('Address*').selectOption('DKI Jakarta');
+  await page.getByLabel('Address*').selectOption(data.province);
 
   // Select city
-  await page.locator('#city').selectOption('Jakarta Selatan');
+  await page.locator('#city').selectOption(data.city);
 
   // Click submit button
   await page.getByRole('button', { name: 'Submit' }).click();

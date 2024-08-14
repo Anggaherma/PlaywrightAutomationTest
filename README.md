@@ -9,8 +9,8 @@ formSubmissionAutomationTest is a project for UI testing of web forms using Play
 ## Prerequisites
 
 - Node.js (version 21 or lower) to avoid version compatibility issues
-- Fill "config" to the config.json file in the tests/resources directory
-- You can fill in the config like config-example
+- Fill "data" to the data.json file in the tests/resources directory
+- You can fill in the data like data-example.json
 
 ## Installation
 

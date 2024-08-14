@@ -31,7 +31,7 @@ formSubmissionAutomationTest is a project for UI testing of web forms using Play
 
 ## How to run
 
-- run this command `npx playwright test`
+- run this command `npm run test`
 
 ### Report
 - Once the test is complete, html report will be displayed automatically.

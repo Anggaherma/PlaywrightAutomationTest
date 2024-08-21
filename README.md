@@ -1,5 +1,4 @@
-# UI Automation Test (from Chapter 2)
-
+# UI Automation Test
 This repo is for form submission automation test
 
 ## Overview
